@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-firestore.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Mídia e Visibilidade</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap" rel="stylesheet" />
+    <link href='./../vendor/fontawesome/css/all.min.css' rel='stylesheet' />
+    <link href="../css/style-index.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg bg-light">
+        <a id="branding" class="navbar-brand" href="./../index.html">
+            <img src="./../img/branding/logo-StartupGO.png" width="50%" alt="Logo da StartupGO" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="./../index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./dashboard.html">Dashboard</a>
+                </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Cadastros
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="./cadastroStartup.html">Startup</a>
+                        <a class="dropdown-item" href="./cadastroComunidade.html">Comunidade</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="./cadastroEvento.html">Eventos</a>
+                        <a class="dropdown-item" href="./cadastroNoticia.html">Notícias</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./estatisticas.html">Estatísticas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./privacidade.html">Privacidade</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a class="btn btn-registrar btn-outline-primary my-2 my-sm-0" href="./criaconta.html"
+                    role="button">Registrar</a>
+                <a class="btn btn-outline-success my-2 my-sm-0" href="./login.html" role="button">Entrar</a>
+            </form>
+        </div>
+    </nav>
+    <style>
+        body {
+            background-color: #fafafa;
+
+        }
+    </style>
+
+
+    <div class="container">
+        </br>
+        </br>
+
+
+
+        <div class="text-center">
+            <H3>Informe os dados para Cadastro da Startup </H3>
+        </div>
+
+
+        <div>
+            </br></br>
+            <div class="form-row">
+
+                <div class="form-group col-md-6">
+                    <label for="NomeF">Nome Fantasia</label>
+                    <input type="text" class="form-control" id="nomeFantasia" placeholder="Nome Fantasia">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">CNPJ</label>
+                    <input type="text" class="form-control" id="CNPJ" placeholder="CNPJ">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="Razaos">Razão Social</label>
+                    <input type="text" class="form-control" id="razaoSocial" placeholder="Razão Social">
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="Area">Modelo de negócio:</label>
+                    <select id="Modelo" class="form-control">
+                        <option selected>B2B</option>
+                        <option selected>B2C</option>
+                        <option selected>B2G</option>
+                        <option selected>B2B2C</option>
+
+                    </select>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="Segmento">Segmento:</label>
+                    <select id="Segmento" class="form-control">
+                        <option selected>Agronegócio</option>
+                        <option selected>Conectividade e Cloud</option>
+                        <option selected>Construção</option>
+                        <option selected>Educação</option>
+                        <option selected>Energia</option>
+                        <option selected>Financeiro</option>
+                        <option selected>Games</option>
+                        <option selected>IOT</option>
+                        <option selected>Manufatura</option>
+                        <option selected>Saúde</option>
+                        <option selected>Segurança</option>
+                        <option selected>Governança e Sustentabilidade</option>
+                        <option selected>Varejo</option>
+                        <option selected>Biotecnologia</option>
+                        <option selected>Direito</option>
+                        <option selected>Indústria</option>
+                        <option selected>Outros</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="form-row">
+
+
+                <div class="form-group col-md-6">
+                    <label for="Endereco">Endereço</label>
+                    <input type="text" class="form-control" id="Endereco" placeholder="Endereço">
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="Bairro">Bairro</label>
+                    <input type="text" class="form-control" id="Bairro" placeholder="Bairro">
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="Estado">Estado</label>
+                    <input type="text" class="form-control" id="Estado" placeholder="Estado">
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="CEP">CEP</label>
+                    <input type="text" class="form-control " onkeypress="$(this).mask('00.000-000')" id="CEP"
+                        placeholder="CEP">
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="Bairro">Número</label>
+                    <input type="text" class="form-control" id="Numero" placeholder="Número">
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="form-row">
+            <img class="mb-4" src="../img/icons/icons8-facebook.svg" alt="" width="125" height="125">
+            <div class="form-group col-md-4">
+                <label for="Facebook">Facebook</label>
+                <input type="text" class="form-control" id="Facebook" placeholder="Facebook">
+            </div>
+            <img class="mb-4" src="../img/icons/icons8-github.svg" alt="" width="125" height="125">
+            <div class="form-group col-md-4">
+                <label for="GitHub">GitHub</label>
+                <input type="text" class="form-control" id="GitHub" placeholder="GitHub">
+            </div>
+            <img class="mb-4" src="../img/icons/icons8-instagram.svg" alt="" width="125" height="125">
+            <div class="form-group col-md-4">
+                <label for="Instragram">Instragram</label>
+                <input type="text" class="form-control" id="Instragram" placeholder="Instragram">
+            </div>
+            <img class="mb-4" src="../img/icons/icons8-twitter.svg" alt="" width="125" height="125">
+            <div class="form-group col-md-4">
+                <label for="Twitter">Twitter</label>
+                <input type="text" class="form-control" id="Twitter" placeholder="Twitter">
+            </div>
+        </div>
+
+
+
+
+
+
+        <div align="center">
+
+            <button type="button" class="btn btn-success btn-lg ">Finalizar Cadastro</button>
+
+        </div>
+
+    </div>
+
+
+    </br></br>
+
+    <footer class="footer">
+        <div class="container bottom_border">
+            <div class="row">
+                <div class=" col-sm-4 col-md col-sm-4  col-12 col">
+                    <h5 class="headin5_amrc col_white_amrc pt2">Contato</h5>
+                    <!--headin5_amrc-->
+                    <p class="mb10">Sociedade ilimitada com pessoas que empreendem, querem empreender ou apoiar o
+                        ecossistema de inovação em Goiás.</p>
+                    <p><i class="fa fa-phone"></i> +55 62 xxxx-xxxx </p>
+                    <p><i class="fa fa fa-envelope"></i> contato@startupgo.org </p>
+                </div>
+
+                <div class=" col-sm-4 col-md  col-6 col">
+                </div>
+
+                <div class=" logo-footer col-sm-4 col-md  col-6 col">
+                    <img src="./../img/branding/logo-StartupGO-white.png" width="100%" alt="Logo da StartupGO" />
+                </div>
+
+                <div class="container">
+                    <ul class="foote_bottom_ul_amrc">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="./cadastroStartup.html">Cadastro de Startup</a></li>
+                        <li><a href="./cadastroComunidade.html">Cadastro de Comunidade</a></li>
+                        <li><a href="./estatisticas.html">Estatísticas</a></li>
+                        <li><a href="./privacidade.html">Privacidade</a></li>
+                    </ul>
+
+                    <p class="text-center">Copyright @2019 | Designed by <a href="#">StartupGO Community</a></p>
+
+                    <ul class="social_footer_ul">
+                        <li><a href="https://fb.com/startupgo.org"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="https://fb.com/groups/startupgo"><i class="fab fa-facebook-messenger"></i></a></li>
+                        <li><a href="https://bit.ly/startupgotelegram"><i class="fab fa-telegram-plane"></i></a></li>
+                        <li><a href="https://www.linkedin.com/company/28490210"><i class="fab fa-linkedin"></i></a></li>
+                        <li><a href="https://www.instagram.com/startup.goias/"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+
+    </footer>
+
+    <script src="./../vendor/jquery/jquery-3.4.1.min.js"></script>
+    <script src="./../vendor/modernizr/modernizr.js"></script>
+    <script src="./../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src='./../vendor/fontawesome/js/all.min.js'></script>
+</body>
+
+</html>
